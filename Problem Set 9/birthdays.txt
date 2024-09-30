@@ -1,0 +1,5 @@
+Katherine Switzer,1,5,1947
+James Meredith,6,25,1933
+Franklin D. Roosevelt,1,30,1882
+Susan B. Anthony,2,15,1820
+Abraham Lincoln,2,12,1809

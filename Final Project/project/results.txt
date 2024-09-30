@@ -1,0 +1,111 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Fri Aug 16 11:09:37 2024
+
+Description: Results of the different tests ran on the moves files.
+Date: 8/16/24
+Name: Benjamin Kim 
+email: benjt@bu.edu
+"""
+
+puzzles with 5-move optimal solutions
+-------------------------------------
+algorithm              num. solved    avg. moves    avg. states tested
+----------------------------------------------------------------------
+random                     10            8.2             379.7
+BFS                        10            5.0             47.1    
+DFS (depth limit 20)       10            16.2            19072.7  
+DFS (depth limit 50)       10            48.2            49043.0
+Greedy Search              10            5.4             70.4 
+A*                         10            5.0             6.7  
+
+puzzles with 10-move optimal solutions
+-------------------------------------
+algorithm              num. solved    avg. moves    avg. states tested
+----------------------------------------------------------------------
+random                     10            10.8            9645.8
+BFS                        10            10.0            747.4
+DFS (depth limit 20)       10            18.8            24858.0
+DFS (depth limit 50)       10            49.2            92287.3 
+Greedy Search              10            77.8            1470.4
+A*                         10            10.0            30.2
+
+puzzles with 15-move optimal solutions
+-------------------------------------
+algorithm              num. solved    avg. moves    avg. states tested
+----------------------------------------------------------------------
+random                     10            16.6            15645.2 
+BFS                        10            15.0            12672.0  
+DFS (depth limit 20)       10            17.8            68659.0
+DFS (depth limit 50)       10            48.6            111406.0
+Greedy Search              10            Stuck on last puzzle.
+A*                         10            15.0            347.7    
+
+Results: From these three tables, a clear pattern emerges. The informed 
+searches, Greedy and A*, are the most optimal with A* being better than 
+Greedy since it also takes into account a state's cost, or the number of 
+number of moves it took to get to it. Greedy Search doesn't factor in a 
+state's cost, only its number of misplaced tiles. The informed searches are 
+followed in efficiency by the random search, then the breadth-first search, 
+then the depth-first search. The depth-first search would logically test the 
+greatest number of states on average because it requires a greater quantity 
+of successor generation than random search or BFS.
+
+
+heuristic 2 (h2)
+-----------
+This heuristic works by finding the total distance of all tiles from 
+their goal positions.
+
+puzzles with 18-move optimal solutions
+--------------------------------------
+algorithm              num. solved    avg. moves    avg. states tested
+----------------------------------------------------------------------
+Greedy (heuristic h1)      10            Stuck on 4th puzzle.              
+Greedy (heuristic h2)      10            116.2           450.0    
+
+A* (heuristic h1)          10            18.0            1861.7               
+A* (heuristic h2)          10            18.0            359.9    
+
+puzzles with 21-move optimal solutions
+--------------------------------------
+algorithm              num. solved    avg. moves    avg. states tested
+----------------------------------------------------------------------
+Greedy (heuristic h1)      10            Stuck on 1st puzzle.                  
+Greedy (heuristic h2)      10            104.0           379.9
+
+A* (heuristic h1)          10            21.0            7728.5               
+A* (heuristic h2)          10            21.0            906.3    
+
+puzzles with 24-move optimal solutions
+--------------------------------------
+algorithm              num. solved    avg. moves    avg. states tested
+----------------------------------------------------------------------
+Greedy (heuristic h1)      10            Stuck on 6th puzzle.            
+Greedy (heuristic h2)      10            111.0           403.8    
+
+A* (heuristic h1)          10            Stuck on 1st puzzle.               
+A* (heuristic h2)          10            24.0            2493.0    
+
+puzzles with 27-move optimal solutions
+--------------------------------------
+algorithm              num. solved    avg. moves    avg. states tested
+----------------------------------------------------------------------
+Greedy (heuristic h1)      10            163.4           2775.8               
+Greedy (heuristic h2)      10            115.8           418.8
+
+A* (heuristic h1)          10            Stuck on the 1st puzzle.               
+A* (heuristic h2)          10            27.0            12304.8   
+
+Results: 
+As one would probably expect, Greedy and A* search both perform better when 
+they have a better heuristic. In this case, h2 is better than h1 because
+the total distance of all tiles from their goal positions is a more telling
+indicator of how close the board is to the goal state than simply a count
+of how many tiles are misplaced. What I did not expect, however, is that 
+Greedy and A* search would sometimes get stuck on certain puzzles, not just 
+on the 18-27 move puzzles, but Greedy search got stuck on a 15 move puzzle, 
+as well. This is because Greedy and A* search assign values to each state they 
+come across to figure out which state to test next. And in doing so, they 
+sometimes get stuck testing high priority states which might appear to be 
+close to the solution, but don't actually lead to one.

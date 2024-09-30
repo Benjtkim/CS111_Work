@@ -1,0 +1,4 @@
+Mike Mercury,BU,mile,4:50:00
+Steve Slug,BC,mile,7:30:00
+Len Lightning,BU,half-mile,2:15:00
+Tom Turtle,UMass,half-mile,4:00:00

@@ -1,0 +1,31 @@
+Problem Set 3, Problem 1 - Tracing Recursion
+
+Name: Benjamin Kim
+email: benjt@bu.edu
+
+1-1: mystery(a,b)
+
+Print Output: 24
+
+  a  |  b
+-------------
+  0  |  9  
+return 24
+
+  a  |  b
+-------------
+  1  |  7    
+return 15
+
+  a  |  b
+-------------
+  2  |  5    
+return 8
+
+  a  |  b
+-------------
+  3  |  3    
+return 3
+
+     	
+# add more stack frames as needed
